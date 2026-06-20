@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>La Previa 🍻 — el juego de tus fiestas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- PANTALLA 1: JUGADORES -->
+  <section id="setup" class="screen active">
+    <div class="logo">🍻</div>
+    <h1>La Previa</h1>
+    <p class="subtitle">El juego que se adapta a tu grupo.<br>Pásate el móvil y que empiece la noche.</p>
+
+    <div class="players-box">
+      <div class="input-row">
+        <input id="nameInput" type="text" placeholder="Nombre del jugador" maxlength="14" autocomplete="off" />
+        <button id="addBtn" class="add-btn">+</button>
+      </div>
+      <div id="playersList" class="players-list"></div>
+      <p id="hint" class="hint">Añade al menos 3 jugadores</p>
+    </div>
+
+    <div class="gametype">
+      <p class="intensity-label">Elige el juego</p>
+      <div class="gametype-options">
+        <button class="gt-btn active" data-game="retos">🃏<span>Retos</span></button>
+        <button class="gt-btn" data-game="moneda">🪙<span>La Moneda</span></button>
+      </div>
+    </div>
+
+    <div class="intensity" id="intensitySection">
+      <p class="intensity-label">Elige la intensidad</p>
+      <div class="intensity-options">
+        <button class="int-btn" data-level="suave">😇<span>Suave</span></button>
+        <button class="int-btn active" data-level="picante">🌶️<span>Picante</span></button>
+        <button class="int-btn" data-level="salvaje">🔥<span>Salvaje</span></button>
+        <button class="int-btn bestia-btn" data-level="bestia">😈<span>Bestia</span></button>
+      </div>
+      <p id="bestiaNote" class="bestia-note">💋 Bestia: solo grupos mixtos · +18 · sin vergüenza</p>
+      <button id="nightBtn" class="night-btn">🌙 Modo Noche · sube solo según bebéis</button>
+    </div>
+
+    <div class="intensity" id="coinStyleSection" style="display:none">
+      <p class="intensity-label">Elige el estilo</p>
+      <div class="intensity-options">
+        <button class="cs-btn active" data-style="normal">😏<span>Normal</span></button>
+        <button class="cs-btn" data-style="mixto">😈<span>Mixto</span></button>
+      </div>
+      <p id="mixtoNote" class="bestia-note">😈 Mixto: para grupos con chicos y chicas · +18</p>
+    </div>
+
+    <button id="startBtn" class="start-btn" disabled>Empezar 🔥</button>
+  </section>
+
+  <!-- PANTALLA 2: JUEGO -->
+  <section id="game" class="screen">
+    <button id="exitBtn" class="exit-btn">✕</button>
+    <div id="levelBadge" class="level-badge"></div>
+
+    <div id="card" class="card">
+      <div id="cardTag" class="card-tag"></div>
+      <p id="challenge" class="challenge">¡Toca para empezar!</p>
+    </div>
+
+    <div id="copasBar" class="copas-bar">
+      <span class="copas-count">🍺 <b id="copasNum">0</b> copas</span>
+      <button id="addCopaBtn" class="copa-btn">+1 copa 🍺</button>
+    </div>
+
+    <button id="nextBtn" class="next-btn">Siguiente →</button>
+    <p class="footer-hint">Pásale el móvil al siguiente 👉</p>
+
+    <div id="levelUp" class="level-up"></div>
+  </section>
+
+  <!-- PANTALLA 3: LA MONEDA -->
+  <section id="coin" class="screen">
+    <button id="coinExit" class="exit-btn">✕</button>
+    <div id="coinBadge" class="level-badge">🪙 La Moneda</div>
+
+    <div id="holdPanel" class="hold-panel">
+      <span class="hold-cover">🤫<br>Mantén pulsado<br>para ver la pregunta</span>
+      <span id="coinQuestion" class="hold-question"></span>
+    </div>
+
+    <div class="coin-wrap">
+      <div id="coinEl" class="coin">
+        <div class="coin-face coin-front">CARA<br>😏</div>
+        <div class="coin-face coin-back">CRUZ<br>🤫</div>
+      </div>
+    </div>
+
+    <p id="coinResult" class="coin-result"></p>
+
+    <button id="coinFlipBtn" class="next-btn">Lanzar moneda 🪙</button>
+    <button id="coinNextBtn" class="next-btn" style="display:none">Otra pregunta →</button>
+  </section>
+
+  <script src="challenges.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
