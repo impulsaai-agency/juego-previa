@@ -1,4 +1,9 @@
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none; user-select: none;   /* iOS no selecciona texto al mantener pulsado */
+  -webkit-touch-callout: none;                     /* iOS no muestra la lupa/menú */
+}
 
 :root {
   --bg: #0f0d1a;
@@ -47,6 +52,7 @@ h1 {
   outline: none; border: 1.5px solid transparent; transition: border .2s;
 }
 #nameInput:focus { border-color: var(--accent2); }
+#nameInput { -webkit-user-select: text; user-select: text; -webkit-touch-callout: default; }
 .add-btn {
   width: 54px; border: none; border-radius: 14px; font-size: 26px; font-weight: 700;
   background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; cursor: pointer;
