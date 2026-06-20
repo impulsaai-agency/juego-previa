@@ -19,8 +19,8 @@ body {
   background: radial-gradient(circle at 50% 0%, var(--bg2), var(--bg) 70%);
   color: var(--text);
   min-height: 100vh;
-  overflow: hidden;
-  user-select: none;
+  min-height: 100dvh;
+  overscroll-behavior-y: none;
 }
 
 .screen {
@@ -28,7 +28,8 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 32px 24px calc(32px + env(safe-area-inset-bottom));
+  min-height: 100dvh;
+  padding: 28px 24px calc(48px + env(safe-area-inset-bottom));
   text-align: center;
 }
 .screen.active { display: flex; }
